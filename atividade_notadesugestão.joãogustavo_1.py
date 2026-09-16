@@ -1,61 +1,15 @@
-# Lista para armazenar até 50 notas
-notas = [None for i in range(50)]
-notas_id = 0
+notas = [8.5, 7.2, 9.1, 6.8, 8.0, 7.5, 9.5, 8.8, 7.0, 8.3]
 
+# Quantidade de alunos
+quantidade = len(notas)
 
-# Função que apresenta o menu principal
-def print_menu():
-    print("Aplicação de controle de notas!")
-    print("1 - Inserir nota")
-    print("2 - Apresentar média das notas")
-    print("3 - Apresentar maior e menor notas")
-    print("4 - Apresentar todas as notas")
-    print("5 - Sair")
+# Cálculos
+media = sum(notas) / quantidade
+maior = max(notas)
+menor = min(notas)
 
-
-# Função que insere nova nota
-def insert_nota(nova_nota):
-    global notas_id
-
-    notas[notas_id] = nova_nota
-    notas_id += 1
-
-
-# Função que apresenta a nota mínima
-def min_nota(array):
-    return min(array)
-
-
-# Função que apresenta a nota máxima
-def max_nota(array):
-    return max(array)
-
-
-while True:
-    print_menu()
-    opt = input()
-
-    match opt:
-
-        case "1":
-            nota = float(input("Digite a nota: "))
-            insert_nota(nota)
-
-        case "2":
-            media = sum(notas[:notas_id]) / notas_id
-            print("Média:", media)
-
-        case "3":
-            notas_validas = notas[:notas_id]
-
-            print("Menor nota:", min_nota(notas_validas))
-            print("Maior nota:", max_nota(notas_validas))
-
-        case "4":
-            print("Notas:", notas[:notas_id])
-
-        case "5":
-            break
-
-
-print("saindo...")
+# Resultados
+print("Quantidade de alunos:", quantidade)
+print("Média da turma:", round(media, 2))
+print("Maior nota:", maior)
+print("Menor nota:", menor)
